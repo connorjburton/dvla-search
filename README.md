@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/connorjburton/dvla-search/badges/gpa.svg)](https://codeclimate.com/github/connorjburton/dvla-search)
+
 # DVLA Search PHP SDK
 PHP SDK for DVLASearch API
 
