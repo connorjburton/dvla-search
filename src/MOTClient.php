@@ -1,8 +1,8 @@
 <?php
 namespace DVLASearch\SDK;
 
-class VehicleSearchClient extends Client {
-	const TYPE = 'DvlaSearch';
+class MotClient extends Client {
+	const TYPE = 'MotHistory';
 
 	public function __construct(string $key = '')
 	{
