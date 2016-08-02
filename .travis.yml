@@ -1,6 +1,5 @@
 language: php
-before_script: composer dump-autoload
-script: phpunit --bootstrap vendor/autoload.php tests/VehicleClientTest.php
+script: composer dump-autoload && phpunit --bootstrap vendor/autoload.php tests/VehicleClientTest.php
 php:
   - '7.0'
   - hhvm
