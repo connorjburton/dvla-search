@@ -64,6 +64,7 @@ object(DVLASearch\SDK\Objects\Vehicle)#17 (2) {
 ### Methods
 
 _mot()_
+
 Returns mot data for that vehicle
 
 ```php
@@ -71,6 +72,7 @@ $vehicle->mot();
 ```
 
 _tyres()_
+
 Returns tyre data for that vehicle
 
 ```php
@@ -144,6 +146,7 @@ object(DVLASearch\SDK\Objects\Mot)#17 (2) {
 ### Methods
 
 _vehicle()_
+
 Returns the vehicle the mot data relates to
 
 ```php
@@ -151,6 +154,7 @@ $vehicle->vehicle();
 ```
 
 _tyres()_
+
 Returns tyre data for the vehicle the mot data relates to
 
 ```php
@@ -234,6 +238,7 @@ object(DVLASearch\SDK\Objects\Tyres)#17 (2) {
 ### Methods
 
 _vehicle()_
+
 Returns the vehicle the tyre data relates to
 
 ```php
@@ -241,6 +246,7 @@ $tyres->vehicle();
 ```
 
 _mot()_
+
 Returns mot data for the vehicle the tyre data relates to
 
 ```php
