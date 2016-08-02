@@ -1,0 +1,17 @@
+{
+    "name": "DVLASearch/SDK",
+    "description": "SDK for DVLA Search",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Connor Burton",
+            "email": "info@connorburton.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "DVLASearch\\SDK\\": "src/"
+        }
+    }
+}
