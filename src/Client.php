@@ -5,7 +5,7 @@ class Client {
 	const ENDPOINT = 'https://dvlasearch.appspot.com/%s?apikey=%s&licencePlate=%s';
 	const OBJECT_MAP = [
 		'DvlaSearch' => '\\' . __NAMESPACE__ . '\Objects\Vehicle',
-		'MotHistory' => '\\' . __NAMESPACE__ . '\Objects\MOT',
+		'MotHistory' => '\\' . __NAMESPACE__ . '\Objects\Mot',
 		'TyreSearch' => '\\' . __NAMESPACE__ . '\Objects\Tyres',
 	];
 	
