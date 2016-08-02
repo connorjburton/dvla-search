@@ -11,21 +11,23 @@ PHP SDK for DVLASearch API
 
 # Usage
 
-Currently `VehicleSearchClient` is the only class available.
+Each request will return an object of the related request, this object will have methods to request other information about the same vehicle. All the methods are chainable, for example:
+
+## Vehicle Client
 
 ```php
 <?php
 
-use DVLASearch\SDK\VehicleSearchClient;
+use DVLASearch\SDK\VehicleClient;
 
-$client = new VehicleSearchClient('API KEY HERE');
-$result = $client->get('NUMBER PLATE HERE');
+$client = new VehicleClient('API KEY HERE');
+$vehicle = $client->get('NUMBER PLATE HERE');
 ```
 
 Returns on success
 
 ```
-object(stdClass)#17 (21) {
+object(DVLASearch\SDK\Objects\Vehicle)#17 (21) {
   ["make"]=> string(10) "VOLKSWAGEN"
   ["dateOfFirstRegistration"]=> string(12) "23 July 2009"
   ["yearOfManufacture"]=> string(4) "2009"
@@ -53,8 +55,24 @@ object(stdClass)#17 (21) {
 Returns on error
 
 ```
-object(stdClass)#17 (2) {
+object(DVLASearch\SDK\Objects\Vehicle)#17 (2) {
   ["message"]=> string(15) "API key invalid"
   ["error"]=> int(1)
 }
+```
+
+### Methods
+
+_mot()_
+
+```php
+<?php
+$vehicle->mot(); // returns mot data for that vehicle
+```
+
+_tyres()_
+
+```php
+<?php
+$vehicle->tyres(); // returns tyre data for that vehicle
 ```
