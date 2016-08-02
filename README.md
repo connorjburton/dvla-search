@@ -3,7 +3,7 @@ PHP SDK for DVLASearch API
 
 # Requirements
 
-PHP >=7.0.0
+* PHP >=7.0.0
 
 # Installation
 
