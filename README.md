@@ -64,15 +64,17 @@ object(DVLASearch\SDK\Objects\Vehicle)#17 (2) {
 ### Methods
 
 _mot()_
+Returns mot data for that vehicle
 
 ```php
-$vehicle->mot(); // returns mot data for that vehicle
+$vehicle->mot();
 ```
 
 _tyres()_
+Returns tyre data for that vehicle
 
 ```php
-$vehicle->tyres(); // returns tyre data for that vehicle
+$vehicle->tyres();
 ```
 
 ## MOT Client
@@ -142,15 +144,17 @@ object(DVLASearch\SDK\Objects\Mot)#17 (2) {
 ### Methods
 
 _vehicle()_
+Returns the vehicle the mot data relates to
 
 ```php
-$vehicle->vehicle(); // returns the vehicle the mot data relates to
+$vehicle->vehicle();
 ```
 
 _tyres()_
+Returns tyre data for the vehicle the mot data relates to
 
 ```php
-$vehicle->tyres(); // returns tyre data for the vehicle the mot data relates to
+$vehicle->tyres();
 ```
 
 ## Tyres Client
@@ -230,13 +234,19 @@ object(DVLASearch\SDK\Objects\Tyres)#17 (2) {
 ### Methods
 
 _vehicle()_
+Returns the vehicle the tyre data relates to
 
 ```php
-$tyres->vehicle(); // returns the vehicle the tyre data relates to
+$tyres->vehicle();
 ```
 
 _mot()_
+Returns mot data for the vehicle the tyre data relates to
 
 ```php
-$tyres->mot(); // returns mot data for the vehicle the tyre data relates to
+$tyres->mot();
 ```
+
+## Running Tests
+
+`phpunit --bootstrap vendor/autoload.php tests/VehicleClientTest.php`
