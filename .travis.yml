@@ -1,6 +1,7 @@
 language: php
-install: composer install
+install: composer install --dev
 script: phpunit --bootstrap vendor/autoload.php tests/VehicleClientTest.php
+after_success: phpunit --coverage-clover build/logs/clover.xml
 php:
   - '7.0'
   - nightly
