@@ -9,8 +9,8 @@ class Mot {
 	private $plate = '';
 
 	public function __construct($data, string $key, string $plate) {
-		$this->$key = $key;
-		$this->$plate = $plate;
+		$this->key = $key;
+		$this->plate = $plate;
 		
 		foreach($data as $key => $value) {
 			$this->{$key} = $value;
