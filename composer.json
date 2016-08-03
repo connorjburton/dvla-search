@@ -8,7 +8,6 @@
             "email": "info@connorburton.com"
         }
     ],
-    "require": {},
     "require-dev": {
         "codeclimate/php-test-reporter": "dev-master"
     },
