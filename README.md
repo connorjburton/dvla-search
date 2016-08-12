@@ -1,4 +1,5 @@
 [![Code Climate](https://codeclimate.com/github/connorjburton/dvla-search/badges/gpa.svg)](https://codeclimate.com/github/connorjburton/dvla-search)
+[![Test Coverage](https://codeclimate.com/github/connorjburton/dvla-search/badges/coverage.svg)](https://codeclimate.com/github/connorjburton/dvla-search/coverage)
 [![Build Status](https://travis-ci.org/connorjburton/dvla-search.svg?branch=master)](https://travis-ci.org/connorjburton/dvla-search)
 
 # DVLA Search PHP SDK
