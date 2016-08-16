@@ -44,7 +44,7 @@ class Client {
 		if(!$result = curl_exec($curl)) throw new \Exception('cURL error (' . curl_errno($curl) . '): ' . curl_error($curl));
 		
 		$result = json_decode($result);
-		if($result->error) throw new \Exception($result->message);
+		if(isset($result->error) && $result->error) throw new \Exception($result->message);
 		
 		return $this->toObject($result);
 	}
