@@ -27,7 +27,7 @@ class Client {
 
 	private function parse(): string
 	{
-		return sprintf($this::ENDPOINT, $this->type, $this->key, $this->plate);
+		return sprintf($this::ENDPOINT, $this->type, $this->key, strtoupper(str_replace(' ', '', $this->plate)));
 	}
 	
 	protected function query(string $plate)
@@ -41,8 +41,11 @@ class Client {
 			CURLOPT_URL => $this->parse()
 		]);
 		
-		if(!$result = curl_exec($curl)) throw new Exception('cURL error (' . curl_errno($curl) . '): ' . curl_error($curl));
-
-		return $this->toObject(json_decode($result));
+		if(!$result = curl_exec($curl)) throw new \Exception('cURL error (' . curl_errno($curl) . '): ' . curl_error($curl));
+		
+		$result = json_decode($result);
+		if($result->error) throw new \Exception($result->message);
+		
+		return $this->toObject($result);
 	}
 }
