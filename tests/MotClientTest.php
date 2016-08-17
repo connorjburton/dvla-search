@@ -1,27 +1,27 @@
 <?php
 use PHPUnit\Framework\TestCase;
 
-use DVLASearch\SDK\Clients\Vehicle;
+use DVLASearch\SDK\Clients\Mot;
 
-class VehicleClientTest extends TestCase
+class MotClientTest extends TestCase
 {
     public function testReturnsDummyData()
     {
-        $client = new Vehicle();
+        $client = new Mot();
         $result = $client->get('mt09nks');
         $this->assertFalse(isset($result->error));
     }
 
-    public function testMotRelationship()
+    public function testVehicleRelationship()
     {
-        $client = new Vehicle();
+        $client = new Mot();
         $result = $client->get('mt09nks');
-        $this->assertFalse(isset($result->mot()->error));
+        $this->assertFalse(isset($result->vehicle()->error));
     }
 
     public function testTyreRelationship()
     {
-        $client = new Vehicle();
+        $client = new Mot();
         $result = $client->get('mt09nks');
         $this->assertFalse(isset($result->tyres()->error));
     }

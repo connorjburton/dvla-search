@@ -1,27 +1,30 @@
 <?php
-namespace DVLASearch\SDK;
+namespace DVLASearch\SDK\Clients;
 
 class Client {
 	const ENDPOINT = 'https://dvlasearch.appspot.com/%s?apikey=%s&licencePlate=%s';
-	const OBJECT_MAP = [
-		'DvlaSearch' => '\\' . __NAMESPACE__ . '\Objects\Vehicle',
-		'MotHistory' => '\\' . __NAMESPACE__ . '\Objects\Mot',
-		'TyreSearch' => '\\' . __NAMESPACE__ . '\Objects\Tyres',
-	];
-	
+	private $map = null;
+
 	private $type = '';
 	private $plate = '';
 	private $key = 'DvlaSearchDemoAccount';
 
 	public function __construct(string $key, string $type)
 	{
+		$namespace = str_replace(last(explode('\\', __NAMESPACE__)), '', __NAMESPACE__) . 'Objects\\';
+		$this->map = [
+			'DvlaSearch' => $namespace . 'Vehicle',
+			'MotHistory' => $namespace . 'Mot',
+			'TyreSearch' => $namespace . 'Tyres',
+		];
+
 		if($key) $this->key = $key;
 		$this->type = $type;
 	}
 	
 	private function toObject($data)
 	{
-		$name = $this::OBJECT_MAP[$this->type];
+		$name = $this->map[$this->type];
 		return new $name($data, $this->key, $this->plate);
 	}
 
