@@ -16,9 +16,9 @@ class Client {
 		$namespace =  implode('\\', $arr);
 		
 		$this->map = [
-			'DvlaSearch' => $namespace . 'Vehicle',
-			'MotHistory' => $namespace . 'Mot',
-			'TyreSearch' => $namespace . 'Tyres',
+			'DvlaSearch' => $namespace . 'Vehicle'::class,
+			'MotHistory' => $namespace . 'Mot'::class,
+			'TyreSearch' => $namespace . 'Tyres'::class,
 		];
 
 		if($key) $this->key = $key;
