@@ -11,8 +11,10 @@ class Client {
 
 	public function __construct(string $key, string $type)
 	{
-		$arr = array_pop(explode('\\', __NAMESPACE__));
-		$namespace = implode('\\', $arr) . 'Objects\\';
+		$arr = explode('\\', __NAMESPACE__);
+    	$arr[count($arr) - 1] = 'Objects\\';
+		$namespace =  implode('\\', $arr);
+		
 		$this->map = [
 			'DvlaSearch' => $namespace . 'Vehicle',
 			'MotHistory' => $namespace . 'Mot',
