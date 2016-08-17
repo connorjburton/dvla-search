@@ -14,7 +14,7 @@ class Client {
 	public function __construct(string $key, string $type)
 	{
 		$arr = explode('\\', __NAMESPACE__);
-    	$arr[count($arr) - 1] = 'Objects\\';
+    		$arr[count($arr) - 1] = 'Objects\\';
 		$namespace =  implode('\\', $arr);
 		
 		$this->map = [
