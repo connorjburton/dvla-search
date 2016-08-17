@@ -1,6 +1,6 @@
 language: php
 install: composer install
-script: phpunit --bootstrap vendor/autoload.php tests/VehicleClientTest.php --coverage-clover build/logs/clover.xml
+script: phpunit --coverage-clover build/logs/clover.xml
 env:
   - CODECLIMATE_REPO_TOKEN=fc6c9e3297a414ac544133b02c8ee15958a1f95bbe93df275cd09bc3125e4f5c
 after_success:
