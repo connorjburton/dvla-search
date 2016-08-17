@@ -30,7 +30,7 @@ $plate = 'MT09 MEL';
 $client = new Vehicle('API KEY HERE');
 $vehicle = $client->get($plate);
 
-//$vehicle->error will be set if the number plate isn't attached to a vehicle
+// $vehicle->error will be set if the number plate isn't attached to a vehicle
 if(!isset($vehicle->error)) {
   var_dump($vehicle);
 } else {
@@ -63,6 +63,15 @@ object(DVLASearch\SDK\Objects\Vehicle)#17 (21) {
   ["numberOfDoors"]=> string(1) "5"
   ["sixMonthRate"]=> string(0) ""
   ["twelveMonthRate"]=> string(0) ""
+}
+```
+
+Returns on error
+
+```
+object(DVLASearch\SDK\Objects\Vehicle)#17 (2) {
+  ["message"]=> string(15) "API key invalid"
+  ["error"]=> int(1)
 }
 ```
 
@@ -145,6 +154,15 @@ object(DVLASearch\SDK\Objects\Mot)#26 (9) {
       }
     }
     ...
+```
+
+Returns on error
+
+```
+object(DVLASearch\SDK\Objects\Mot)#17 (2) {
+  ["message"]=> string(15) "API key invalid"
+  ["error"]=> int(1)
+}
 ```
 
 ### Methods
@@ -236,6 +254,15 @@ object(DVLASearch\SDK\Objects\Tyres)#20 (9) {
     }
   }
   ...
+```
+
+Returns on error
+
+```
+object(DVLASearch\SDK\Objects\Tyres)#17 (2) {
+  ["message"]=> string(15) "API key invalid"
+  ["error"]=> int(1)
+}
 ```
 
 ### Methods
