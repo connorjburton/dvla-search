@@ -69,9 +69,11 @@ object(DVLASearch\SDK\Objects\Vehicle)#17 (21) {
 Returns on error
 
 ```
-object(DVLASearch\SDK\Objects\Vehicle)#17 (2) {
-  ["message"]=> string(15) "API key invalid"
-  ["error"]=> int(1)
+Vehicle {#348 ▼
+  -key: "DvlaSearchDemoAccount"
+  -plate: "mt09mel"
+  +"message": "No vehicle found"
+  +"error": 0
 }
 ```
 
@@ -159,9 +161,11 @@ object(DVLASearch\SDK\Objects\Mot)#26 (9) {
 Returns on error
 
 ```
-object(DVLASearch\SDK\Objects\Mot)#26 (2) {
-  ["message"]=> string(15) "API key invalid"
-  ["error"]=> int(1)
+Mot {#348 ▼
+  -key: "DvlaSearchDemoAccount"
+  -plate: "mt09mel"
+  +"message": "No vehicle found"
+  +"error": 0
 }
 ```
 
@@ -259,9 +263,11 @@ object(DVLASearch\SDK\Objects\Tyres)#20 (9) {
 Returns on error
 
 ```
-object(DVLASearch\SDK\Objects\Tyres)#20 (2) {
-  ["message"]=> string(15) "API key invalid"
-  ["error"]=> int(1)
+Tyres {#348 ▼
+  -key: "DvlaSearchDemoAccount"
+  -plate: "mt09mel"
+  +"message": "No vehicle found"
+  +"error": 0
 }
 ```
 
