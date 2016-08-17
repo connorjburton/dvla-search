@@ -26,8 +26,16 @@ The library will throw an exception if it encounters an error from the API.
 
 use DVLASearch\SDK\Clients\Vehicle;
 
+$plate = 'MT09 MEL';
 $client = new Vehicle('API KEY HERE');
-$vehicle = $client->get('NUMBER PLATE HERE');
+$vehicle = $client->get($plate);
+
+//$vehicle->error will be set if the number plate isn't attached to a vehicle
+if(!isset($vehicle->error)) {
+  var_dump($vehicle);
+} else {
+  var_dump('No vehicle found for ' . $plate);
+}
 ```
 
 Returns on success
@@ -83,8 +91,16 @@ $vehicle->tyres();
 
 use DVLASearch\SDK\Clients\Mot;
 
+$plate = 'MT09 MEL';
 $client = new Mot('API KEY HERE');
-$mot = $client->get('NUMBER PLATE HERE');
+$mot = $client->get($plate);
+
+// $vehicle->error will be set if the number plate isn't attached to a vehicle
+if(!isset($mot->error)) {
+  var_dump($mot);
+} else {
+  var_dump('No MOT found for ' . $plate);
+}
 ```
 
 Returns on success
@@ -156,8 +172,16 @@ $vehicle->tyres();
 
 use DVLASearch\SDK\Clients\Tyres;
 
+$plate = 'MT09 MEL';
 $client = new Tyres('API KEY HERE');
-$tyres = $client->get('NUMBER PLATE HERE');
+$tyres = $client->get($plate);
+
+// $vehicle->error will be set if the number plate isn't attached to a vehicle
+if(!isset($tyres->error)) {
+  var_dump($tyres);
+} else {
+  var_dump('No MOT found for ' . $plate);
+}
 ```
 
 Returns on success
