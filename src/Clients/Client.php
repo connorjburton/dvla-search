@@ -1,6 +1,8 @@
 <?php
 namespace DVLASearch\SDK\Clients;
 
+use DVLASearch\SDK\Objects\Object;
+
 class Client {
 	const ENDPOINT = 'https://dvlasearch.appspot.com/%s?apikey=%s&licencePlate=%s';
 	private $map = null;
@@ -16,16 +18,16 @@ class Client {
 		$namespace =  implode('\\', $arr);
 		
 		$this->map = [
-			'DvlaSearch' => $namespace . 'Vehicle',
-			'MotHistory' => $namespace . 'Mot',
-			'TyreSearch' => $namespace . 'Tyres',
+			'DvlaSearch' => $namespace . 'Vehicle'::class,
+			'MotHistory' => $namespace . 'Mot'::class,
+			'TyreSearch' => $namespace . 'Tyres'::class,
 		];
 
 		if($key) $this->key = $key;
 		$this->type = $type;
 	}
 	
-	private function toObject($data)
+	private function toObject($data): Object
 	{
 		$name = $this->map[$this->type];
 		return new $name($data, $this->key, $this->plate);
@@ -36,7 +38,7 @@ class Client {
 		return sprintf($this::ENDPOINT, $this->type, $this->key, strtoupper(str_replace(' ', '', $this->plate)));
 	}
 	
-	protected function query(string $plate)
+	protected function query(string $plate): Object
 	{
 		if(!$plate) throw new Exception('Empty $plate given');
 		$this->plate = $plate;

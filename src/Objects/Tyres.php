@@ -1,10 +1,10 @@
 <?php
 namespace DVLASearch\SDK\Objects;
 
-use DVLASearch\SDK\Clients\Mot as MotClient;
-use DVLASearch\SDK\Clients\Vehicle as VehicleClient;
+use DVLASearch\SDK\Mot as MotClient;
+use DVLASearch\SDK\Vehicle as VehicleClient;
 
-class Tyres {
+class Tyres implements Object {
 	private $key = '';
 	private $plate = '';
 

@@ -4,7 +4,7 @@ namespace DVLASearch\SDK\Objects;
 use DVLASearch\SDK\Clients\Mot as MotClient;
 use DVLASearch\SDK\Clients\Tyres as TyresClient;
 
-class Vehicle {
+class Vehicle implements Object {
 	private $key = '';
 	private $plate = '';
 

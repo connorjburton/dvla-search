@@ -1,10 +1,10 @@
 <?php
 namespace DVLASearch\SDK\Objects;
 
-use DVLASearch\SDK\Clients\Tyres as TyresClient;
-use DVLASearch\SDK\Clients\Vehicle as VehicleClient;
+use DVLASearch\SDK\Tyres as TyresClient;
+use DVLASearch\SDK\Vehicle as VehicleClient;
 
-class Mot {
+class Mot implements Object {
 	private $key = '';
 	private $plate = '';
 
@@ -16,7 +16,7 @@ class Mot {
 			$this->{$key} = $value;
 		}
 	}
-
+	
 	public function tyres(): Tyres {
 		$client = new TyresClient($this->key);
 		return $client->get($this->plate);

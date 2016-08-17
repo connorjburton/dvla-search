@@ -1,6 +1,8 @@
 <?php
 namespace DVLASearch\SDK\Clients;
 
+use DVLASearch\SDK\Objects\Object;
+
 class Mot extends Client {
 	const TYPE = 'MotHistory';
 
@@ -9,7 +11,7 @@ class Mot extends Client {
 		parent::__construct($key, $this::TYPE);
 	}
 
-	public function get(string $plate)
+	public function get(string $plate): Object
 	{
 		return $this->query($plate);
 	}
