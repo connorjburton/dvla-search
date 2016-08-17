@@ -11,7 +11,7 @@ class Client {
 
 	public function __construct(string $key, string $type)
 	{
-		$namespace = str_replace(last(explode('\\', __NAMESPACE__)), '', __NAMESPACE__) . 'Objects\\';
+		$namespace = str_replace(end(explode('\\', __NAMESPACE__)), '', __NAMESPACE__) . 'Objects\\';
 		$this->map = [
 			'DvlaSearch' => $namespace . 'Vehicle',
 			'MotHistory' => $namespace . 'Mot',
