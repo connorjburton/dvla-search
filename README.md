@@ -234,4 +234,4 @@ $tyres->mot();
 
 ## Running Tests
 
-`phpunit --bootstrap vendor/autoload.php tests/VehicleClientTest.php`
+`phpunit`
