@@ -159,7 +159,7 @@ object(DVLASearch\SDK\Objects\Mot)#26 (9) {
 Returns on error
 
 ```
-object(DVLASearch\SDK\Objects\Mot)#17 (2) {
+object(DVLASearch\SDK\Objects\Mot)#26 (2) {
   ["message"]=> string(15) "API key invalid"
   ["error"]=> int(1)
 }
@@ -259,7 +259,7 @@ object(DVLASearch\SDK\Objects\Tyres)#20 (9) {
 Returns on error
 
 ```
-object(DVLASearch\SDK\Objects\Tyres)#17 (2) {
+object(DVLASearch\SDK\Objects\Tyres)#20 (2) {
   ["message"]=> string(15) "API key invalid"
   ["error"]=> int(1)
 }
