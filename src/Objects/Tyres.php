@@ -1,8 +1,8 @@
 <?php
 namespace DVLASearch\SDK\Objects;
 
-use DVLASearch\SDK\Mot as MotClient;
-use DVLASearch\SDK\Vehicle as VehicleClient;
+use DVLASearch\SDK\Clients\Mot as MotClient;
+use DVLASearch\SDK\Clients\Vehicle as VehicleClient;
 
 class Tyres {
 	private $key = '';

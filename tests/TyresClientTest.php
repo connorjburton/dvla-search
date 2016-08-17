@@ -3,7 +3,7 @@ use PHPUnit\Framework\TestCase;
 
 use DVLASearch\SDK\Clients\Tyres;
 
-class MotClientTest extends TestCase
+class TyresClientTest extends TestCase
 {
     public function testReturnsDummyData()
     {
