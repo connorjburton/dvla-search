@@ -17,14 +17,16 @@ PHP SDK for DVLASearch API
 
 Each request will return an object of the related request, this object will have methods to request other information about the same vehicle.
 
+The library will throw an exception if it encounters an error from the API.
+
 ## Vehicle Client
 
 ```php
 <?php
 
-use DVLASearch\SDK\VehicleClient;
+use DVLASearch\SDK\Clients\Vehicle;
 
-$client = new VehicleClient('API KEY HERE');
+$client = new Vehicle('API KEY HERE');
 $vehicle = $client->get('NUMBER PLATE HERE');
 ```
 
@@ -56,15 +58,6 @@ object(DVLASearch\SDK\Objects\Vehicle)#17 (21) {
 }
 ```
 
-Returns on error
-
-```
-object(DVLASearch\SDK\Objects\Vehicle)#17 (2) {
-  ["message"]=> string(15) "API key invalid"
-  ["error"]=> int(1)
-}
-```
-
 ### Methods
 
 _mot()_
@@ -88,9 +81,9 @@ $vehicle->tyres();
 ```php
 <?php
 
-use DVLASearch\SDK\MotClient;
+use DVLASearch\SDK\Clients\Mot;
 
-$client = new MotClient('API KEY HERE');
+$client = new Mot('API KEY HERE');
 $mot = $client->get('NUMBER PLATE HERE');
 ```
 
@@ -138,15 +131,6 @@ object(DVLASearch\SDK\Objects\Mot)#26 (9) {
     ...
 ```
 
-Returns on error
-
-```
-object(DVLASearch\SDK\Objects\Mot)#17 (2) {
-  ["message"]=> string(15) "API key invalid"
-  ["error"]=> int(1)
-}
-```
-
 ### Methods
 
 _vehicle()_
@@ -170,9 +154,9 @@ $vehicle->tyres();
 ```php
 <?php
 
-use DVLASearch\SDK\TyresClient;
+use DVLASearch\SDK\Clients\Tyres;
 
-$client = new TyresClient('API KEY HERE');
+$client = new Tyres('API KEY HERE');
 $tyres = $client->get('NUMBER PLATE HERE');
 ```
 
@@ -228,15 +212,6 @@ object(DVLASearch\SDK\Objects\Tyres)#20 (9) {
     }
   }
   ...
-```
-
-Returns on error
-
-```
-object(DVLASearch\SDK\Objects\Tyres)#17 (2) {
-  ["message"]=> string(15) "API key invalid"
-  ["error"]=> int(1)
-}
 ```
 
 ### Methods
