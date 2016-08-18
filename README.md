@@ -26,43 +26,44 @@ The library will throw an exception if it encounters an error from the API.
 
 use DVLASearch\SDK\Clients\Vehicle;
 
-$plate = 'MT09 MEL';
 $client = new Vehicle('API KEY HERE');
-$vehicle = $client->get($plate);
+$vehicle = $client->get('MT09 VCA');
 
 // $vehicle->error will be set if the number plate isn't attached to a vehicle
 if(!isset($vehicle->error)) {
   var_dump($vehicle);
 } else {
-  var_dump('No vehicle found for ' . $plate);
+  var_dump('No vehicle found for ' . $vehicle->plate);
 }
 ```
 
 Returns on success
 
 ```
-object(DVLASearch\SDK\Objects\Vehicle)#17 (21) {
-  ["make"]=> string(10) "VOLKSWAGEN"
-  ["dateOfFirstRegistration"]=> string(12) "23 July 2009"
-  ["yearOfManufacture"]=> string(4) "2009"
-  ["cylinderCapacity"]=> string(6) "1968cc"
-  ["co2Emissions"]=> string(8) "167 g/km"
-  ["fuelType"]=> string(6) "DIESEL"
-  ["taxStatus"]=> string(11) "Tax not due"
-  ["colour"]=> string(6) "SILVER"
-  ["typeApproval"]=> string(2) "M1"
-  ["wheelPlan"]=> string(17) "2 AXLE RIGID BODY"
-  ["revenueWeight"]=> string(13) "Not available"
-  ["taxDetails"]=> string(24) "Tax due: 01 October 2016"
-  ["motDetails"]=> string(22) "Expires: 28 April 2017"
-  ["taxed"]=> bool(true)
-  ["mot"]=> bool(true)
-  ["vin"]=> string(17) "WVGZZZ5NZAW007903"
-  ["model"]=> string(6) "Tiguan"
-  ["transmission"]=> string(6) "Manual"
-  ["numberOfDoors"]=> string(1) "5"
-  ["sixMonthRate"]=> string(0) ""
-  ["twelveMonthRate"]=> string(0) ""
+Vehicle {#348 ▼
+  -key: "DvlaSearchDemoAccount"
+  +plate: "mt09vca"
+  +"make": "SAAB"
+  +"dateOfFirstRegistration": "27 July 2009"
+  +"yearOfManufacture": "2009"
+  +"cylinderCapacity": "1910cc"
+  +"co2Emissions": "177 g/km"
+  +"fuelType": "DIESEL"
+  +"taxStatus": "Tax not due"
+  +"colour": "GREY"
+  +"typeApproval": "M1"
+  +"wheelPlan": "2 AXLE RIGID BODY"
+  +"revenueWeight": "Not available"
+  +"taxDetails": "Tax due: 01 October 2016"
+  +"motDetails": "Expires: 02 October 2016"
+  +"taxed": true
+  +"mot": true
+  +"vin": "YS3FF41W391018057"
+  +"model": "9-3 VECTOR S ANNIVERSARY LTD TID"
+  +"transmission": "AUTOMATIC"
+  +"numberOfDoors": "4"
+  +"sixMonthRate": ""
+  +"twelveMonthRate": ""
 }
 ```
 
@@ -71,7 +72,7 @@ Returns on error
 ```
 Vehicle {#348 ▼
   -key: "DvlaSearchDemoAccount"
-  -plate: "mt09mel"
+  +plate: "mt09vca"
   +"message": "No vehicle found"
   +"error": 0
 }
@@ -102,68 +103,37 @@ $vehicle->tyres();
 
 use DVLASearch\SDK\Clients\Mot;
 
-$plate = 'MT09 MEL';
 $client = new Mot('API KEY HERE');
-$mot = $client->get($plate);
+$mot = $client->get('MT09 VCA');
 
 // $vehicle->error will be set if the number plate isn't attached to a vehicle
 if(!isset($mot->error)) {
   var_dump($mot);
 } else {
-  var_dump('No MOT found for ' . $plate);
+  var_dump('No MOT found for ' . $mot->plate);
 }
 ```
 
 Returns on success
 
 ```
-object(DVLASearch\SDK\Objects\Mot)#26 (9) {
-  ["key":"DVLASearch\SDK\Objects\Mot":private]=>
-  string(0) ""
-  ["plate":"DVLASearch\SDK\Objects\Mot":private]=>
-  string(0) ""
-  ["DvlaSearchDemoAccount"]=>
-  string(21) "DvlaSearchDemoAccount"
-  ["mt09nks"]=>
-  string(7) "mt09nks"
-  ["make"]=>
-  string(10) "VOLKSWAGEN"
-  ["model"]=>
-  string(6) "Tiguan"
-  ["dateFirstUsed"]=>
-  string(0) ""
-  ["colour"]=>
-  string(6) "SILVER"
-  ["motTestReports"]=>
-  array(6) {
-    [0]=>
-    object(stdClass)#20 (7) {
-      ["testDate"]=>
-      string(13) "29 April 2016"
-      ["expiryDate"]=>
-      string(13) "28 April 2017"
-      ["testResult"]=>
-      string(4) "Pass"
-      ["odometerReading"]=>
-      int(80084)
-      ["motTestNumber"]=>
-      int(244794981138)
-      ["advisoryItems"]=>
-      array(0) {
-      }
-      ["failureItems"]=>
-      array(0) {
-      }
-    }
-    ...
+Mot {#380 ▼
+  -key: "DvlaSearchDemoAccount"
+  +plate: "mt09vca"
+  +"make": "SAAB"
+  +"model": "9-3 VECTOR S ANNIVERSARY LTD TID"
+  +"dateFirstUsed": ""
+  +"colour": "GREY"
+  +"motTestReports": array:5 [▶]
+}
 ```
 
 Returns on error
 
 ```
-Mot {#348 ▼
+Mot {#380 ▼
   -key: "DvlaSearchDemoAccount"
-  -plate: "mt09mel"
+  +"plate": "mt09vca"
   +"message": "No vehicle found"
   +"error": 0
 }
@@ -194,78 +164,37 @@ $vehicle->tyres();
 
 use DVLASearch\SDK\Clients\Tyres;
 
-$plate = 'MT09 MEL';
 $client = new Tyres('API KEY HERE');
-$tyres = $client->get($plate);
+$tyres = $client->get('MT09 VCA');
 
 // $vehicle->error will be set if the number plate isn't attached to a vehicle
 if(!isset($tyres->error)) {
   var_dump($tyres);
 } else {
-  var_dump('No MOT found for ' . $plate);
+  var_dump('No MOT found for ' . $tyres->plate);
 }
 ```
 
 Returns on success
 
 ```
-object(DVLASearch\SDK\Objects\Tyres)#20 (9) {
-  ["key":"DVLASearch\SDK\Objects\Tyres":private]=>
-  string(0) ""
-  ["plate":"DVLASearch\SDK\Objects\Tyres":private]=>
-  string(0) ""
-  ["DvlaSearchDemoAccount"]=>
-  string(21) "DvlaSearchDemoAccount"
-  ["mt09nks"]=>
-  string(7) "mt09nks"
-  ["make"]=>
-  string(10) "VOLKSWAGEN"
-  ["model"]=>
-  string(21) "TIGUAN SE TDI 4MOTION"
-  ["year"]=>
-  int(2009)
-  ["frontTyres"]=>
-  array(2) {
-    [0]=>
-    object(stdClass)#24 (6) {
-      ["width"]=>
-      int(235)
-      ["ratio"]=>
-      int(55)
-      ["rim"]=>
-      string(3) "R17"
-      ["speedRating"]=>
-      string(1) "H"
-      ["psi"]=>
-      int(29)
-      ["loadIndex"]=>
-      int(99)
-    }
-    [1]=>
-    object(stdClass)#23 (6) {
-      ["width"]=>
-      int(235)
-      ["ratio"]=>
-      int(50)
-      ["rim"]=>
-      string(3) "R18"
-      ["speedRating"]=>
-      string(1) "H"
-      ["psi"]=>
-      int(29)
-      ["loadIndex"]=>
-      int(97)
-    }
-  }
-  ...
+Tyres {#381 ▼
+  -key: "DvlaSearchDemoAccount"
+  +plate: "mt09vca"
+  +"make": "SAAB"
+  +"model": "9-3 VECTOR S ANNIVERSARY LTD TID"
+  +"year": 2009
+  +"frontTyres": array:3 [▶]
+  +"rearTyres": array:3 [▶]
+}
 ```
 
 Returns on error
 
 ```
-Tyres {#348 ▼
+Tyres {#381 ▼
   -key: "DvlaSearchDemoAccount"
-  -plate: "mt09mel"
+  +"plate": "mt09vca"
   +"message": "No vehicle found"
   +"error": 0
 }
