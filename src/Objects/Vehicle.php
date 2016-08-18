@@ -6,8 +6,8 @@ use DVLASearch\SDK\Clients\Tyres as TyresClient;
 
 class Vehicle implements Object {
 	private $key = '';
-	private $plate = '';
-
+	public $plate = '';
+	
 	public function __construct($data, string $key, string $plate) {
 		$this->key = $key;
 		$this->plate = $plate;
