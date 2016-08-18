@@ -1,10 +1,35 @@
 language: php
-install: composer install
-script: phpunit --coverage-clover build/logs/clover.xml
-env:
-  - CODECLIMATE_REPO_TOKEN=fc6c9e3297a414ac544133b02c8ee15958a1f95bbe93df275cd09bc3125e4f5c
-after_success:
-  - ./vendor/bin/test-reporter
+
 php:
   - '7.0'
   - nightly
+
+cache:
+  - $HOME/.composer/cache/files
+
+before_install:
+  - |
+      if [[ "$BLACKFIRE" = "on" ]]; then
+          openssl aes-256-cbc -K $encrypted_914727b36396_key -iv $encrypted_914727b36396_iv -in .blackfire.travis.ini.enc -out ~/.blackfire.ini -d
+          curl -L https://blackfire.io/api/v1/releases/agent/linux/amd64 | tar zxpf -
+          chmod 755 agent && ./agent --config=~/.blackfire.ini --socket=unix:///tmp/blackfire.sock &
+      fi
+
+install: travis_retry composer install
+
+before_script:
+    - phpenv config-rm xdebug.ini || true
+    - |
+        if [[ "$BLACKFIRE" = "on" ]]; then
+            curl -L https://blackfire.io/api/v1/releases/probe/php/linux/amd64/$(php -r "echo PHP_MAJOR_VERSION . PHP_MINOR_VERSION;")-zts | tar zxpf -
+            echo "extension=$(pwd)/$(ls blackfire-*.so | tr -d '[[:space:]]')" > ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/blackfire.ini
+            echo "blackfire.agent_socket=unix:///tmp/blackfire.sock" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/blackfire.ini
+        fi
+
+script: phpunit --coverage-clover build/logs/clover.xml
+
+env:
+  - CODECLIMATE_REPO_TOKEN=fc6c9e3297a414ac544133b02c8ee15958a1f95bbe93df275cd09bc3125e4f5c
+
+after_success:
+  - ./vendor/bin/test-reporter
