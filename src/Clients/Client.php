@@ -42,18 +42,20 @@ class Client {
 	{
 		if(!$plate) throw new Exception('Empty $plate given');
 		$this->plate = $plate;
-
+		
 		$curl = curl_init();
 		curl_setopt_array($curl, [
 			CURLOPT_RETURNTRANSFER => 1,
 			CURLOPT_URL => $this->parse()
 		]);
 		
-		if(!$result = curl_exec($curl)) throw new \Exception('cURL error (' . curl_errno($curl) . '): ' . curl_error($curl));
+		$result = curl_exec($curl);
+
+		if($result === false) throw new \Exception('cURL error (' . curl_errno($curl) . '): ' . curl_error($curl) . ' for ' . $this->parse());
 		
 		$result = json_decode($result);
 		if(isset($result->error) && $result->error) throw new \Exception($result->message);
-		
+
 		return $this->toObject($result);
 	}
 }

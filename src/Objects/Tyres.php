@@ -12,8 +12,10 @@ class Tyres implements Object {
 		$this->key = $key;
 		$this->plate = $plate;
 		
-		foreach($data as $key => $value) {
-			$this->{$key} = $value;
+		if($data) {
+			foreach($data as $key => $value) {
+				$this->{$key} = $value;
+			}
 		}
 	}
 
